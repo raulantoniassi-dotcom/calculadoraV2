@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <center>
+    <div class="calculadora">
+      <input id="display" type="text" readonly />
+
+      <div class="botoes">
+        <button class="limpar" id="limpar">C</button>
+        <button class="operador" id="dividir">÷</button>
+        <br>
+
+        <button id="7">7</button>
+        <button id="8">8</button>
+        <button id="9">9</button>
+        <button class="operador" id="multiplicar">×</button>
+        <br>
+
+        <button id="4">4</button>
+        <button id="5">5</button>
+        <button id="6">6</button>
+        <button class="operador" id="subtrair">−</button>
+        <br>
+
+        <button id="1">1</button>
+        <button id="2">2</button>
+        <button id="3">3</button>
+        <button class="operador" id="somar">+</button>
+        <br>
+
+        <button class="zero" id="0">0</button>
+        <button id="ponto">.</button>
+        <button class="igual" id="igual">=</button>
+        <br>
+      </div>
+    </div>
+
+    <script>
+        
+        // Base
+let a = [];
+let b = [];
+let operador = false;
+let operacaoAtual = "";
+
+// Display
+let display = document.querySelector("#display");
+
+function addNumber(number) {
+  display.value += number;
+}
+
+// Botões pra apagar
+limpar.addEventListener("click", () => {
+  display.value = "";
+  a = [];
+  b = [];
+  operador = false;
+  operacaoAtual = "";
+});
+
+const backspace = document.getElementById("Backspace");
+
+// Números
+const num1 = document.getElementById("1");
+const num2 = document.getElementById("2");
+const num3 = document.getElementById("3");
+const num4 = document.getElementById("4");
+const num5 = document.getElementById("5");
+const num6 = document.getElementById("6");
+const num7 = document.getElementById("7");
+const num8 = document.getElementById("8");
+const num9 = document.getElementById("9");
+const num0 = document.getElementById("0");
+
+num1.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(1);
+  } else if (operador == true) {
+    b.push(1);
+  }
+  addNumber(1);
+});
+
+num2.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(2);
+  } else if (operador == true) {
+    b.push(2);
+  }
+  addNumber(2);
+});
+
+num3.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(3);
+  } else if (operador == true) {
+    b.push(3);
+  }
+  addNumber(3);
+});
+
+num4.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(4);
+  } else if (operador == true) {
+    b.push(4);
+  }
+  addNumber(4);
+});
+
+num5.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(5);
+  } else if (operador == true) {
+    b.push(5);
+  }
+  addNumber(5);
+});
+
+num6.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(6);
+  } else if (operador == true) {
+    b.push(6);
+  }
+  addNumber(6);
+});
+
+num7.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(7);
+  } else if (operador == true) {
+    b.push(7);
+  }
+  addNumber(7);
+});
+
+num8.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(8);
+  } else if (operador == true) {
+    b.push(8);
+  }
+  addNumber(8);
+});
+
+num9.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(9);
+  } else if (operador == true) {
+    b.push(9);
+  }
+  addNumber(9);
+});
+
+num0.addEventListener("click", () => {
+  if (operador == false) {
+    a.push(0);
+  } else if (operador == true) {
+    b.push(0);
+  }
+  addNumber(0);
+});
+
+// operadores
+const btnSoma = document.querySelector("#somar");
+btnSoma.addEventListener("click", () => {
+  operador = true;
+  operacaoAtual = "+";
+  addNumber(" + ");
+});
+
+const btnSubtrair = document.querySelector("#subtrair");
+btnSubtrair.addEventListener("click", () => {
+  operador = true;
+  operacaoAtual = "-";
+  addNumber(" - ");
+});
+
+const btnMultiplicar = document.querySelector("#multiplicar");
+btnMultiplicar.addEventListener("click", () => {
+  operador = true;
+  operacaoAtual = "*";
+  addNumber(" × ");
+});
+
+const btnDividir = document.querySelector("#dividir");
+btnDividir.addEventListener("click", () => {
+  operador = true;
+  operacaoAtual = "/";
+  addNumber(" ÷ ");
+});
+
+ let resultado
+ let continuacao = false;
+
+const btnIgual = document.getElementById("igual");
+btnIgual.addEventListener("click", () => {
+   a = Number(a);
+   b = Number(b);
+
+    switch(operacaoAtual){
+        case("+"): resultado = a + b
+        break;
+
+         case("-"): resultado = a - b
+        break;
+
+         case("*"): resultado = a * b
+        break;
+
+         case("/"): resultado = a / b
+        break;
+    }
+    display.value = resultado;
+});
+
+
+    </script>
+  </center>
+</body>
+</html>
+
