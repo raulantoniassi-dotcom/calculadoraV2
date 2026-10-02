@@ -6,6 +6,45 @@
     <title>Pitágoras</title>
 </head>
 <body>
-    
+    <h1>Teorema de Pitágoras</h1>
+     <input type="number" id="a" placeholder="A">
+    <input type="number" id="b" placeholder="B">
+    <input type="number" id="x" placeholder="X">
+    <button id="calcular">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        //Declarações
+         const btnCalcular = document.getElementById("calcular");
+        const aValor = document.getElementById("a");
+        const bValor = document.getElementById("b");
+        const xValor = document.getElementById("x");
+        const resultado = document.getElementById("resultado");
+        const a = aValor.value
+        const b = bValor.value
+        const x = xValor.value
+        //Function
+        const catetoA = (b, x) => {
+                const a = ((b*b) - (x*x)) ** 0.5
+                return a;
+            };
+
+        const catetoB = (a, x) => {
+                const b = ((a*a) - (x*x)) ** 0.5
+                return b;
+            };
+
+        const catetoX = (a, b) => {
+                const x = ((a*a) - (b*b)) ** 0.5
+                return x;
+            };
+
+
+        //Validação e output
+        if(Number.isNaN(a)){
+            catetoA(b, x)
+            resultado
+        }
+    </script>
 </body>
 </html>

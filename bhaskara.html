@@ -6,6 +6,64 @@
     <title>Bhaskara</title>
 </head>
 <body>
+    <h1>Fórmula de Bhaskara</h1>
+    <input type="number" id="a" placeholder="A"> x²
+    <input type="number" id="b" placeholder="B"> x
+    <input type="number" id="c" placeholder="C"> = 0
+    <button id="calcular">Calcular</button>
+    <p id="resultado"></p>
+     <p id="resultado2"></p>
+      <p id="resultado3"></p>
+
+    <script>
+        //Declaraçõs
+        const btnCalcular = document.getElementById("calcular");
+        const aValor = document.getElementById("a");
+        const bValor = document.getElementById("b");
+        const cValor = document.getElementById("c");
+        const resultado = document.getElementById("resultado");
+        const resultado2 = document.getElementById("resultado2");
+        const resultado3 = document.getElementById("resultado3");
+        const a = aValor.value
+        const b = bValor.value
+        const c = cValor.value
+        let delta
+        //Function
+        const calculoDelta = (a, b, c) => {
+           const deltaRes = (b ** 2) + (-4 * a * c)
+           console.log(deltaRes)
+           return deltaRes;
+        };
+        
+        const calculoBhaskara = (a, b, c, delta) => {
+            let raiz = delta ** 0.5;
+            const x1 = (-(b) + raiz)/ (2 * a)
+            const x2 = (-(b) - raiz)/ (2 * a)
+
+            return [x1, x2]
+        };
+       
+        //Button
+         btnCalcular.addEventListener("click", () =>{ 
+            const a = Number(aValor.value);
+            const b = Number(bValor.value);
+            const c = Number(cValor.value);
+            if (Number.isNaN(a) || Number.isNaN(b) || Number.isNaN(c)) {
+                resultado.textContent = "Fórmula inválida.";
+            }
+            const delta = calculoDelta(a, b, c);
+            if(delta < 0){
+                resultado.textContent = "Delta negativo, não tem solução."
+            }
+            else{
+            const [x1, x2] = calculoBhaskara(a, b, c, delta);
+            
+            resultado.textContent = `Delta: ${delta}`;
+            resultado2.textContent = `X1: ${x1.toFixed(2)}`;
+            resultado3.textContent = `X2: ${x2.toFixed(2)}`;
+            };
+         });
+    </script>
     
 </body>
 </html>
